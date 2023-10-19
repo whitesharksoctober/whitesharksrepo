@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        #header {
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            padding: 20px;
+        }
+
+        #shark {
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">Deep Blue Ocean</div>
+    <div id="shark">🦈</div>
+
+    <script>
+        let sharkX = 0;
+        let sharkY = 0;
+
+        document.addEventListener("keydown", (event) => {
+            const speed = 10;
+
+            if (event.key === "ArrowRight") {
+                sharkX += speed;
+            } else if (event.key === "ArrowLeft") {
+                sharkX -= speed;
+            } else if (event.key === "ArrowUp") {
+                sharkY -= speed;
+            } else if (event.key === "ArrowDown") {
+                sharkY += speed;
+            }
+
+            const shark = document.getElementById("shark");
+            shark.style.left = sharkX + "px";
+            shark.style.top = sharkY + "px";
+        });
+    </script>
+</body>
+</html>
